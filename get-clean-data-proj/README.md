@@ -41,6 +41,11 @@ Here are the steps taken by `run_analysis.R`:
 
 ## List of Project Files
 
+This section describes the directories and files used in this project.
+It only lists the files that were created for this project.  See the project
+[codebook](https://github.com/DaddyTheRunner/datasciencecoursera/blob/get-clean-data-proj/get-clean-data-proj/Codebook.Rmd) for a description of the files in
+the dataset.
+
 ### Directories
 
 These are the directories used in this project.
@@ -53,13 +58,14 @@ These are the directories used in this project.
 ### Source Files
 
 These are the files that should be edited.  They are used to generate
-all of the other files in the project.
+all of the other files in the project.  The links take you to the GitHub
+copy of the files.
 
 |File Name|Description|
 |---------|-----------|
-|README.md|This file.|
-|Codebook.Rmd|Source R markdown file for the project codebook.|
-|run_analysis.R|R script that obtains the data and converts it into a tidy dataset.|
+|[README.md](https://github.com/DaddyTheRunner/datasciencecoursera/blob/get-clean-data-proj/get-clean-data-proj/README.md)|This file.|
+|[Codebook.Rmd](https://github.com/DaddyTheRunner/datasciencecoursera/blob/get-clean-data-proj/get-clean-data-proj/Codebook.Rmd)|Source R markdown file for the project codebook.|
+|[run_analysis.R]()|R script that obtains the data and converts it into a tidy dataset.|
 
 
 ### Generated Files
