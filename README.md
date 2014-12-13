@@ -7,3 +7,7 @@ This is the repo required for The Data Scientist's Toolbox course.  It demonstra
 on GitHub.
 
 Owner:  DaddyTheRunner
+
+## History
+
+2014-12-12 - Created a branch for the Getting and Cleaning Data course project
