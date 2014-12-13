@@ -65,7 +65,7 @@ copy of the files.
 |---------|-----------|
 |[README.md](https://github.com/DaddyTheRunner/datasciencecoursera/blob/get-clean-data-proj/get-clean-data-proj/README.md)|This file.|
 |[Codebook.Rmd](https://github.com/DaddyTheRunner/datasciencecoursera/blob/get-clean-data-proj/get-clean-data-proj/Codebook.Rmd)|Source R markdown file for the project codebook.|
-|[run_analysis.R]()|R script that obtains the data and converts it into a tidy dataset.|
+|[run_analysis.R](https://github.com/DaddyTheRunner/datasciencecoursera/blob/get-clean-data-proj/get-clean-data-proj/run_analysis.R)|R script that obtains the data and converts it into a tidy dataset.|
 
 
 ### Generated Files
