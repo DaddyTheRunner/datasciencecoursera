@@ -1,0 +1,16 @@
+# This .gitignore file was obtained from github
+# link:  https://github.com/github/gitignore/blob/master/R.gitignore
+
+# History files
+.Rhistory
+.Rapp.history
+
+# Example code in package build process
+*-Ex.R
+
+# RStudio files
+.Rproj.user/
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
