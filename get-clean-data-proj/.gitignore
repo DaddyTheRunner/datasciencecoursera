@@ -1,0 +1,5 @@
+# Local .gitignore file for the Getting and Cleaning Data
+# course project
+
+# Add local files to have git ignore
+*.zip
