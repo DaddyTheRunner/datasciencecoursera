@@ -1,0 +1,7 @@
+# Getting and Cleaning Data Course Project Codebook
+
+*Author:  Daddy the Runner*  
+*Date:  2012-12-12*
+
+This codebook describes the data and processes used to
+complete the Getting and Cleaning Data Science course project.
