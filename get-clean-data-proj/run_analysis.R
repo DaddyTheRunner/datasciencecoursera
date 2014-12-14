@@ -11,6 +11,7 @@
 
 ## Load the required libraries
 require(stringi)
+require(dplyr)
 
 ## Check to see if we are in the correct working directory
 if (!stri_endswith_fixed(getwd(), "get-clean-data-proj")) {
@@ -54,6 +55,17 @@ xTest <- read.table(file.path(data.dir, xTest.fn), stringsAsFactors = FALSE)
 yTest <- read.table(file.path(data.dir, yTest.fn), stringsAsFactors = FALSE)
 subjTrain <- read.table(file.path(data.dir, subjTrain.fn), stringsAsFactors = FALSE)
 subjTest <- read.table(file.path(data.dir, subjTest.fn), stringsAsFactors = FALSE)
-actLbls.fn <- read.table(file.path(data.dir, actLbls.fn), stringsAsFactors = FALSE)
+actLbls <- read.table(file.path(data.dir, actLbls.fn), stringsAsFactors = FALSE)
 
 ## Now we need to stitch the data together
+## first combine the x test and x train data frames into one large data frame
+xAll <- rbind_list(xTrain, xTest)
+rm(xTrain, xTest)
+
+## Next combine the subject train and test data frames
+subjAll <- rbind_list(subjTrain, subjTest)
+rm(subjTrain, subjTest)
+
+## Next combine the activity IDs for the train and test data frames
+yAll <- rbind_list(yTrain, yTest)
+rm(yTrain, yTest)
