@@ -47,6 +47,8 @@ Here are the steps taken by `run_analysis.R`:
 1. Check for and create a data directory if needed
 2. Check for and download the raw dataset if needed
 3. Unzip the dataset if needed
+4. Reads in each of the files used into separate data frames
+5. Combines the data frames into a single project data frame
 
 
 
