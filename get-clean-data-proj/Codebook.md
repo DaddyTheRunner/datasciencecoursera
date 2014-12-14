@@ -40,18 +40,20 @@ files.
 
 ### Dataset Files
 
-The dataset contains the following files:
+The dataset contains the following files that were used in this project:
 
-|File Name|Description|
-|---------|-----------|
-|README.txt|Experiment description|
-|features_info.txt|Shows information about the variables used on the feature vector.|
-|features.txt|List of all features.|
-|activity_labels.txt|Links the class labels with their activity name.|
-|train/X_train.txt|Training set.|
-|train/y_train.txt|Training labels.|
-|test/X_test.txt|Test set.|
-|test/y_test.txt|Test labels.|
+|File Name|Rows|Cols|Description|
+|---------|----|----|-----------|
+|README.txt| | |Experiment description|
+|features_info.txt| | |Shows information about the variables used on the feature vector.|
+|features.txt| 561 | 2 |List of all features.|
+|activity_labels.txt| 6 | 2 |Links the activity label IDs with their activity name.|
+|train/X_train.txt| 7352 | 561 |Training dataset.|
+|train/y_train.txt| 7352 | 1 |Each row identifies the activity label IDs associated with each window sample in the training dataset.  Its range is from 1 to 6.|
+|test/X_test.txt| 2947 | 561 |Test dataset.|
+|test/y_test.txt| 2947 | 1 |Each row identifies the activity label IDs associated with each window sample in the test dataset.  Its range is from 1 to 6.|
+|train/subject\_train.txt| 7352 | 1 |Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.|
+|test/subject\_test.txt| 2947 | 1 |Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.|
 
 The following diagram shows the relationship between the various files
 
@@ -59,12 +61,12 @@ The following diagram shows the relationship between the various files
 
 Diagram courtesy of David Hood.  Source:  https://class.coursera.org/getdata-016/forum/thread?thread_id=50#comment-333
 
-The following files are available for both the train and test data. Simply
-replace the word `train` with `test` for the test data.
+The following additional files are available for both the train and test data. Simply
+replace the word `train` with `test` for the test data.  However, these were not used
+in this project.
 
 |File Name|Description|
 |---------|-----------|
-|train/subject\_train.txt|Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.|
 |train/Inertial\ Signals/total\_acc\_x\_train.txt|The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the total\_acc\_y\_train.txt and total\_acc\_z\_train.txt files for the Y and Z axis.|
 |train/Inertial\ Signals/body\_acc\_x\_train.txt|The body acceleration signal obtained by subtracting the gravity from the total acceleration.|
 |train/Inertial\ Signals/body\_gyro\_x\_train.txt|The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.|
