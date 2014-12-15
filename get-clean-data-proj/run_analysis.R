@@ -89,3 +89,18 @@ features$V2 <- make.names(features$V2) %>%
   stri_replace_first_fixed("Jerk", ".Jerk") %>%
   stri_replace_first_fixed("Mag", ".Magnitude") %>%
   stri_replace_all_fixed("BodyBody", "Body")
+
+# Apply the feature names to the columns
+names(xAll) <- features$V2
+
+## Clean up the activity names and merge them into the dataset
+actLbls$V2 <- actLbls$V2 %>%
+  stri_replace_all_fixed("_", ".")
+Activities <- left_join(yAll, actLbls)[,2]
+names(Activities) <- "Activity"
+xAll <- cbind(Activities, xAll)
+
+## Now add in the subject IDs
+names(subjAll) <- "Subject.ID"
+xAll <- cbind(subjAll, xAll)
+
