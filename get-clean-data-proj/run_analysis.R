@@ -93,14 +93,23 @@ features$V2 <- make.names(features$V2) %>%
 # Apply the feature names to the columns
 names(xAll) <- features$V2
 
-## Clean up the activity names and merge them into the dataset
+## Clean up the activity names and merge them into the dataset as a factor
 actLbls$V2 <- actLbls$V2 %>%
   stri_replace_all_fixed("_", ".")
 Activities <- left_join(yAll, actLbls)[,2]
 names(Activities) <- "Activity"
-xAll <- cbind(Activities, xAll)
+Activity <- factor(Activities$Activity, levels=actLbls$V2, ordered=TRUE)
+xAll <- cbind(Activity, xAll)
 
 ## Now add in the subject IDs
 names(subjAll) <- "Subject.ID"
 xAll <- cbind(subjAll, xAll)
 
+## Now group the data by Subj ID and Activity
+xAll <- group_by(xAll, Subject.ID, Activity)
+
+## Calculate the mean for each variable and each pairing of subject and activity
+result <- summarise_each(xAll, funs(mean))
+
+## Write the results to a file
+write.table(result, "./Data/summary-results.txt")
