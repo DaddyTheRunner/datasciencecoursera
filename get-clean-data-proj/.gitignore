@@ -4,3 +4,4 @@
 # Add local files to have git ignore
 *.zip
 /Data/UCI\ HAR Dataset/**
+/Data/summary-results.txt
