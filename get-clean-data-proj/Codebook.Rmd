@@ -123,5 +123,5 @@ features$V3 <- make.names(features$V3) %>%
   stri_replace_first_fixed("Mag", ".Magnitude") %>%
   stri_replace_all_fixed("BodyBody", "Body")
 names(features) <- c("FeatureID", "Original Name", "New Name")
-knitr::kable(features, align = c("l", "l", "l"))
+knitr::kable(features, format="markdown", align = c("l", "l", "l"))
 ```
