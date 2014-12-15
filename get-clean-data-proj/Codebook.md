@@ -20,7 +20,7 @@ conducting the following six activities:
 
 1. Walking
 2. Walking Up Stairs
-3. Walking Up Stairs
+3. Walking Down Stairs
 4. Sitting
 5. Standing
 6. Laying
