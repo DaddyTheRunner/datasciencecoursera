@@ -69,3 +69,23 @@ rm(subjTrain, subjTest)
 ## Next combine the activity IDs for the train and test data frames
 yAll <- rbind_list(yTrain, yTest)
 rm(yTrain, yTest)
+
+## Now filter out the features we don't need for this project
+features <- filter(features, grepl('mean\\(\\)|std\\(\\)', V2))
+colsToKeep <- paste("V", features$V1, sep="")
+## Convert xAll into a table for dplyr to work with
+xAll <- tbl_df(xAll)
+xAll <- select(xAll, one_of(colsToKeep))
+
+## Clean up the feature names to make them valid column names
+features$V2 <- make.names(features$V2) %>%
+  stri_replace_all_fixed("...", ".") %>%
+  stri_replace_all_fixed("..", "") %>%
+  stri_replace("time.", regex="^t") %>%
+  stri_replace("freq.", regex="^f") %>%
+  stri_replace_first_fixed("BodyAcc", "Body.Acceleration") %>%
+  stri_replace_first_fixed("GravityAcc", "Gravity.Acceleration") %>%
+  stri_replace_first_fixed("BodyGyro", "Body.Gyroscope") %>%
+  stri_replace_first_fixed("Jerk", ".Jerk") %>%
+  stri_replace_first_fixed("Mag", ".Magnitude") %>%
+  stri_replace_all_fixed("BodyBody", "Body")
