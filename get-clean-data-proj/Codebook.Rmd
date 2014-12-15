@@ -51,7 +51,7 @@ The dataset contains the following files that were used in this project:
 |---------|----|----|-----------|
 |README.txt| | |Experiment description|
 |features_info.txt| | |Shows information about the variables used on the feature vector.|
-|features.txt| 561 | 2 |List of all features.|
+|features.txt| 561 | 2 |List of all features.^1^|
 |activity_labels.txt| 6 | 2 |Links the activity label IDs with their activity name.|
 |train/X_train.txt| 7352 | 561 |Training dataset.|
 |train/y_train.txt| 7352 | 1 |Each row identifies the activity label IDs associated with each window sample in the training dataset.  Its range is from 1 to 6.|
@@ -60,7 +60,9 @@ The dataset contains the following files that were used in this project:
 |train/subject\_train.txt| 7352 | 1 |Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.|
 |test/subject\_test.txt| 2947 | 1 |Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.|
 
-The following diagram shows the relationship between the various files
+^1^ Note:  features.txt contains 42 sets of duplicates.  It appears that the original dataset includes a mistake in the features.txt file and that these 42 sets of duplicates are missing the axis designators (i.e. -x, -y, -z).  However, this does not pose a
+problem for this project since none of the features that have duplicate names involve the means or standard deviations we are extracting for this project.
+The following diagram shows the relationship between the various files.
 
 ![Diagram of file relationships](Data-Files-Diagram.png)
 
@@ -87,13 +89,39 @@ either `mean()` or `std()`.  This choice of features specifically ignored
 features that contained the strings `mean` and `std` if they weren't
 immediately followed by `()`.
 
-Here is the list of features used in this project:
+The feature names from the original dataset were modified to produce more
+meaningful names.  Here is a list of transformations that were made:
+
+1. All names were converted to R compatible variable names with words
+separated by periods (.)
+2. All t prefixes were converted to time. to indicate time domain values
+3. All f prefixes were converted to freq. to indicate frequency domain values
+4. Acc was expanded to Acceleration
+5. Gyro was expanded to Gyroscope
+6. A few of the features had a double Body (i.e. BodyBody).  The duplicate
+Body was removed from the name.
+
+Here is the list of features used in this project with their original name
+as they appear in the features.txt file and the new name used in this
+project:
 
 ```{r, echo=FALSE, results='asis', warning=FALSE, message=FALSE}
 require(dplyr)
-features.df <- read.table("./Data/UCI HAR Dataset/features.txt") %>%
-  filter(grepl('mean\\(\\)|std\\(\\)', V2))
-names(features.df) <- c("FeatureID", "Feature")
-knitr::kable(features.df, align = c("l", "l"))
+require(stringi)
+features <- read.table("./Data/UCI HAR Dataset/features.txt") %>%
+  filter(grepl('mean\\(\\)|std\\(\\)', V2)) %>%
+  mutate(V3 = V2)
+features$V3 <- make.names(features$V3) %>%
+  stri_replace_all_fixed("...", ".") %>%
+  stri_replace_all_fixed("..", "") %>%
+  stri_replace("time.", regex="^t") %>%
+  stri_replace("freq.", regex="^f") %>%
+  stri_replace_first_fixed("BodyAcc", "Body.Acceleration") %>%
+  stri_replace_first_fixed("GravityAcc", "Gravity.Acceleration") %>%
+  stri_replace_first_fixed("BodyGyro", "Body.Gyroscope") %>%
+  stri_replace_first_fixed("Jerk", ".Jerk") %>%
+  stri_replace_first_fixed("Mag", ".Magnitude") %>%
+  stri_replace_all_fixed("BodyBody", "Body")
+names(features) <- c("FeatureID", "Original Name", "New Name")
+knitr::kable(features, align = c("l", "l", "l"))
 ```
-
