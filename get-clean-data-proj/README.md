@@ -49,8 +49,14 @@ Here are the steps taken by `run_analysis.R`:
 3. Unzip the dataset if needed
 4. Reads in each of the files used into separate data frames
 5. Combines the data frames into a single project data frame
+6. Filters out the features (i.e. columns) not needed for this project
+7. Cleans up the feature names to make them valid R variable names
+8. Applies the activity names as a factor
+9. Groups the large dataset by subject ID and activity
+10. Calculates the mean for each of the 66 variables and 180 groupings of subject ID and activity.  (180 = 30 subjects x 6 activities)
+11. Writes the results to a text file
 
-
+Details of each step are documented in the R code file.
 
 ## List of Project Files
 

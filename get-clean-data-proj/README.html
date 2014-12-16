@@ -75,7 +75,16 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <li>Check for and create a data directory if needed</li>
 <li>Check for and download the raw dataset if needed</li>
 <li>Unzip the dataset if needed</li>
+<li>Reads in each of the files used into separate data frames</li>
+<li>Combines the data frames into a single project data frame</li>
+<li>Filters out the features (i.e. columns) not needed for this project</li>
+<li>Cleans up the feature names to make them valid R variable names</li>
+<li>Applies the activity names as a factor</li>
+<li>Groups the large dataset by subject ID and activity</li>
+<li>Calculates the mean for each of the 66 variables and 180 groupings of subject ID and activity. (180 = 30 subjects x 6 activities)</li>
+<li>Writes the results to a text file</li>
 </ol>
+<p>Details of each step are documented in the R code file.</p>
 </div>
 <div id="list-of-project-files" class="section level2">
 <h2>List of Project Files</h2>
