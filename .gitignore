@@ -5,6 +5,9 @@
 .Rhistory
 .Rapp.history
 
+# Saved R Environments
+.RData
+
 # Example code in package build process
 *-Ex.R
 
