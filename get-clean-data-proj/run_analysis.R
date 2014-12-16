@@ -112,4 +112,4 @@ xAll <- group_by(xAll, Subject.ID, Activity)
 result <- summarise_each(xAll, funs(mean))
 
 ## Write the results to a file
-write.table(result, "./Data/summary-results.txt")
+write.table(result, "./Data/summary-results.txt", row.names=FALSE)
